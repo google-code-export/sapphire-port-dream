@@ -7,12 +7,6 @@ CHINESE:
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
-
-
 http://img21.imageshack.us/img21/2812/deviceo.png
 
 Scroll down to the very bottom, and choose this:
