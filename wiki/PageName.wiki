@@ -1,0 +1,28 @@
+#summary Chines default?
+
+= Introduction =
+
+CHINESE:
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+
+http://img21.imageshack.us/img21/2812/deviceo.png
+
+Scroll down to the very bottom, and choose this:
+
+http://img16.imageshack.us/img16/410/device2.png
+
+now this:
+
+http://img21.imageshack.us/img21/1390/device3.png
+
+and finally english!
+
+http://img16.imageshack.us/img16/1594/device4.png
