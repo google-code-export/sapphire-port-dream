@@ -1,22 +1,152 @@
-#summary Chines default?
+#summary Android 101
 
-= Introduction =
+#notes
+Android 101
 
-Chinese to english step by step.
+Welcome! This tutorial will hopefully remove all doubt and questions from your mind, and teach you something while doing it!
 
+Table of Contents:
 
-= Details =
+I. Rooting the device
 
-http://img21.imageshack.us/img21/2812/deviceo.png
+a. Tools required
 
-Scroll down to the very bottom, and choose this:
+b. What do they do?
 
-http://img16.imageshack.us/img16/410/device2.png
+c. Okay! Let’s root!
 
-now this:
+II. Flashing the ROMs
 
-http://img21.imageshack.us/img21/1390/device3.png
+a. Making a backup
 
-and finally english!
+b. Flashing the ROM
 
-http://img16.imageshack.us/img16/1594/device4.png
+c. The Radio
+
+d. Going back
+
+I. Rooting the device
+
+What is “rooting,” you say? Simple! Rooting is the act of gaining root, or “administrator,” privileges on your device. What good is that? I’ll tell you! By rooting your device you enable various features that cannot be done by any regular Joe. Rooting can enable many capabilities on your device such as internet tethering, backing up applications, backing up an entire device, and our favorite, placing hacked ROMs on your device! So how does one go about gaining root…?
+
+I.a. Tools Required
+
+ADB, a good friend (AndroidSamurai) wrote up a very nice tut for you guys here : http://forum.xda-developers.com/showthread.php?t=502010
+
+I’d recommend also clicking on the “Start” button, right click “My Computer” click “Properties”. Now choose “Advanced System Settings,” then choose “Environment Variables.” Now under “User variables for yourUsername” Find “path,” and click “Edit.” Now move the cursor to the end of the line of text and add “;C:\android-sdk-windows-1.1_r1\tools\”.
+
+Fastboot, http://www.htc.com/www/support/android/adp.html#s2 (scroll down to Fastboot tool)
+
+Place fastboot.exe into C:\android-sdk-windows-1.1_r1\tools.
+
+I.b. What do they do?
+
+ADB is used to interact with your device while in its regular state. You must go to Settings -> Applications -> Development, and check on “USB Debugging” to have ADB function properly.
+
+Fastboot is used to interact with the SPL. “The SPL, or Second Program Loader, in conjunction with the IPL comprise a device’s bootloader. Aside from bootstrapping Android, the bootloader also fulfills various diagnostic functions. One of these functions is the manipulation of data in the device’s internal flash ram. Depending on the SPL installed, the user can apply a signed NBH file, flash nand images, and more. Note that the SPL is installed and operates independently of the Android build that runs atop it.” (http://forum.xda-developers.com/showthread.php?t=455860)
+
+I.c. Okay! Let’s root!
+
+Alright! Here we go! First let’s get everyone to the same page. Check what version of Android you are running by going to Settings -> About Phone. Look at “Build Number” and it should read something between RC28-RC33, or if you’re in the UK, RC7-RC9.
+
+You want to be on RC29, or RC7 if you’re in the UK. If you already have that, please skip ahead… If you’re not already there, please download http://koushikdutta.blurryfox.com/G1/DREAIMG-RC29.zip (RC29, US) or http://koushikdutta.blurryfox.com/G1/DREAMIMG-RC7.zip (RC7, UK).
+
+Extract the NBH image to your sdcard (make sure it is name DREAIMG.nbh [you can research why if you’d like, but I won’t get into detail about that here]).
+
+Power off your phone; Holding the side camera button, power it back on and you should get a rainbow screen followed by a solid bluish screen. Now press the power button when prompted, and do NOT interrupt the phone while it’s flashing. It will prompt you with “press the action key to continue” or something similar when it has completed. Do not touch anything until that appears. When that happens, press the trackball. Your phone will reboot. You’re now on either RC29, or RC7.
+
+Okay! Now that we’re all together, you’re ready to perform the root.
+
+Download the following files:
+
+http://koushikdutta.blurryfox.com/G1RootWalkthrough/recovery.img
+
+http://koushikdutta.blurryfox.com/G1RootWalkthrough/HardSPL/update.zip
+
+Copy both directly to your sdcard (named recovery.img, and update.zip).
+
+Now we can begin:
+
+Slide out your keyboard, and press the enter key twice.
+
+Type telnetd and press enter. (Disregard the contact search or other stuff, just type it out.)
+
+Download a “Telnet” app from the market place, and connect to “127.0.0.1” or “localhost”.
+
+Type in:
+
+    mount -o rw,remount -t yaffs2 /dev/block/mtdblock3 /system
+
+    cd /sdcard
+
+    flash_image recovery recovery.img
+
+    cat recovery.img > /system/recovery.img
+
+Now you can head on over to http://jf.andblogs.net/ and find the latest JF build for your device (RC9 or RC33, most are in http://forum.xda-developers.com/showthread.php?t=475381)
+
+Download the update, rename it as update.zip and place it on your sd card.
+
+Power off your device. Holding the Home button, power on the device and you should see the recovery screen.
+
+Press ALT+L and some text should show up. Press ALT+W to wipe, then ALT+S to begin the update.
+
+When it completes, press HOME+BACK (it’ll prompt you.) You are now booted into JF’s rooted ROM!
+
+II. Flashing the ROMs
+
+II.a. Making a backup
+
+To make a nandroid backup, open a command prompt (Start -> Run, and type in “cmd”) and type in:
+
+    adb shell reboot recovery
+
+To boot, easily, into recovery mode. When in recovery mode, press ALT+B. Wait until it says it’s completed, then press HOME+BACK to return to your android home screen.
+
+Your backup is now stored on your SD card under the folder “nandroid”. Pull it off and keep it somewhere safe.
+
+II.b. Flashing the ROM
+
+At this point, you can download my updates safely from http://haykuro.theiphoneproject.org (choose whichever you like) rename the update to update.zip and copy it to your SD card. You can now take advantage of adb!
+
+Open a command prompt (Start -> Run, and type in “cmd”) and type in:
+
+    adb shell reboot recovery
+
+This will boot you into recovery mode with little effort. Now simply press ALT+W to wipe, and ALT+S to update to my ROM.
+
+II.c. The Radio
+
+There is currently two versions of the radio. The old RC33 radio, and the newer radio discovered in the HTC updates. If you are updating to any of my builds, you are recommended to upgrade your radio to the latest radio as well; users have reported having various problems using teh old radio along with my builds.
+
+HTC Latest Radio: http://www.mediafire.com/download.php?zhzebmabxyn
+
+Old Radio: http://jf.odiness.com/RC33/RC33radio_update_testkeys.zip
+
+II.d. Going back
+
+After playing with my ROMs, and if you don’t like them or for whatever reason you feel you want to go back, you can revert back at any time using fastboot.
+
+Open a command prompt (Start -> Run, and type in “cmd”) and type in:
+
+    adb shell reboot bootloader
+
+This will boot you, easily, into the SPL (as opposed to power off, holding CAMERA then power on.)
+
+Now in the same command prompt navigate to where you have your nandroid backup (you need boot.img, data.img, and system.img) type in:
+
+    fastboot erase boot
+
+    fastboot erase system –w
+
+    fastboot flash system system.img
+
+    fastboot flash userdata data.img
+
+    fastboot flash boot boot.img
+
+    fastboot reboot
+
+That’s it! You are now back to your original state!
+
+Any further questions, feel free to ask!
