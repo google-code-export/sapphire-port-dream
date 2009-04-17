@@ -1,0 +1,46 @@
+#summary List of what works and what doesnt on the G vs H builds
+
+= Introduction =
+
+This is a list that will (hopefully) stay updated to reflect changes/additions in the most current build.
+
+
+Google Build (latest version)
+----
+==Working==
+ * gtalk
+ * Apps to SD (on the apps-to-sd version)
+ * maps
+ * browser
+ * youtube
+ * camera
+ * video recorder
+ * gmail
+ * music
+ * headphones
+ * bluetooth a2dp
+ * calendar
+ * alarms
+
+==Not Working==
+ * Market downloads
+
+HTC Build (latest version)
+----
+==Working==
+ * Market downloads
+ * Gtalk
+ * Apps to SD (on the apps-to-sd version)
+ * maps
+ * browser (no zoom buttons on latest version)
+ * youtube
+ * camera
+ * video recorder
+ * gmail
+ * music
+ * headphones
+ * bluetooth a2dp
+ * calendar
+ * alarms
+
+==Not Working==
